@@ -275,9 +275,9 @@ class Node:
 
                 #If the neighbour has been visited before check if it has a more efficient path than the current previous node
                 neighbourVisited = checkPos(pos, visitedNodes)
-                if neighbourVisited:
+                if neighbourVisited.__class__ == Node:
                     self.pre = neighbourVisited
-                    neighbourVisited = self
+                    neighbourVisited.pre = self
                     continue
                 
                 #If the neighbour is valid add it to the array
@@ -297,7 +297,7 @@ class Node:
 
     @pre.setter
     def pre(self, newPre):
-        if self._pre.pathCost > newPre.pathCost+euclidean(self.pos, newPre.pos):
+        if self._pre.pathCost > newPre.pathCost+euclidean(self.pos, newPre.pos) and newPre.pre != self:
             self._pre = newPre
             self.pathCost = newPre.cost + euclidean(self.pos, newPre.pos)
 
