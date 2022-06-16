@@ -1,6 +1,6 @@
 # A-Star Visualiser
 
-This is a program that visualises my implementation of the A-star pathfinding algorithm in Python
+This is a program that visualises my implementation of the A-star pathfinding algorithm in Python.
 
 ## Features
 
@@ -17,7 +17,7 @@ For repeatability the user can manually enter a seed for the random noise.
 
 ### User created walls
 
-The user can draw their own walls to create different scenarios for the algorithm
+The user can draw their own walls to create different scenarios for the algorithm.
 
 ## Usage
 
@@ -38,7 +38,7 @@ The user can draw their own walls to create different scenarios for the algorith
 
 ### Settings
 
-The A-star class contains the following program settings: gridSize, blockSize, defaultIntensity, distWeight
+The A-star class contains the following program settings: gridSize, blockSize, defaultIntensity, distWeight.
 
 - gridSize
   - Sets numbers of blocks in the x and y axis, respectivley
@@ -55,6 +55,6 @@ The A-star class contains the following program settings: gridSize, blockSize, d
 
 ## Installation and Setup
 
+- Install python then the noise and pygame library
 - Download Astar.py
-- Install python and the noise library
-- Run the Astar.py
+- Run Astar.py
