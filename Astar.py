@@ -194,7 +194,7 @@ class Astar:
             found = False
             currentNode = StartNode(self.blocks[0])
             self.path = []
-            self.visitedNodes = [] #Nodes that have been visited and checked
+            self.visitedNodes = [currentNode] #Nodes that have been visited and checked
             self.discoveredNodes = [] #Nodes that have been discovered (next to) by visited nodes
 
             while not found:
@@ -215,6 +215,7 @@ class Astar:
                 self.drawBlock(currentNode.pos, col['green'])
                 currentNode = nextNodes[0]
 
+                #Check if the target node has been found
                 if checkPos(self.blocks[1], self.visitedNodes):
                     timeTaken = round(time()-startTime, 2)
                     found = True
@@ -281,9 +282,9 @@ class Node:
                     continue
                 
                 #If the neighbour is valid add it to the array
-                notColliding = pos != self.pos and not pos in pathfinder.walls
+                notColliding = not pos in pathfinder.walls
                 inGrid = x >= 0 and x < pathfinder.x and y >= 0 and y < pathfinder.y
-                if notColliding and inGrid and checkPos(pos, discoveredNodes) == None and pos != pathfinder.blocks[0]:
+                if notColliding and inGrid and checkPos(pos, discoveredNodes) == None:
                     n.append(Node(pos, self))
         return n #Returns all valid neighbours
 
